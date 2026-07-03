@@ -1,16 +1,165 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>我的博客</title>
-</head>
-<body>
-  <h1>欢迎来到我的博客</h1>
-  <p>这是我的第一个 GitHub Pages 博客网站。</p>
+  <title>我的个人博客</title>
 
-  <h2>文章列表</h2>
-  <ul>
-    <li>我的第一篇博客</li>
-  </ul>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    nav {
+      background-color: #34495e;
+      text-align: center;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 1000px;
+      margin: 30px auto;
+      display: flex;
+      gap: 20px;
+    }
+
+    main {
+      flex: 3;
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    aside {
+      flex: 1;
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    article {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    article h2 {
+      color: #2c3e50;
+    }
+
+    article a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    article a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>我的个人博客</h1>
+    <p>记录学习、生活和项目</p>
+  </header>
+
+  <nav>
+    <a href="#">首页</a>
+    <a href="#">文章</a>
+    <a href="#">项目</a>
+    <a href="#">关于我</a>
+  </nav>
+
+  <div class="container">
+
+    <main>
+      <article>
+        <h2>我的第一篇博客</h2>
+        <p>这是我的第一篇博客文章，用来记录我搭建个人网站的过程。</p>
+        <a href="#">阅读全文</a>
+      </article>
+
+      <article>
+        <h2>学习笔记</h2>
+        <p>这里可以放你的课程学习、代码笔记、项目总结等内容。</p>
+        <a href="#">阅读全文</a>
+      </article>
+
+      <article>
+        <h2>我的项目</h2>
+        <p>这里可以展示你的 GitHub 项目、课程设计、实验记录等。</p>
+        <a href="#">阅读全文</a>
+      </article>
+    </main>
+
+    <aside>
+      <h3>关于我</h3>
+      <p>你好，这里是我的个人博客。</p>
+
+      <h3>分类</h3>
+      <ul>
+        <li>学习笔记</li>
+        <li>项目记录</li>
+        <li>生活随笔</li>
+      </ul>
+
+      <h3>联系方式</h3>
+      <p>Email: 你的邮箱</p>
+    </aside>
+
+  </div>
+
+  <footer>
+    <p>© 2026 我的个人博客</p>
+  </footer>
+
 </body>
 </html>
