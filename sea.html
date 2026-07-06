@@ -1,27 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-<meta charset="UTF-8">
-<title>海洋动物</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海洋动物百科</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body>
+<body class="sea-page">
 
-<header><h1>🐋 海洋动物</h1></header>
+    <!-- ==================== 导航栏 ==================== -->
 
-<nav>
-  <a href="index.html">首页</a>
-</nav>
+    <header class="navbar">
 
-<div class="cards">
+        <div class="logo">
+            🐢 海洋动物百科
+        </div>
 
-  <div class="card">🐳 鲸鱼</div>
-  <div class="card">🐬 海豚</div>
-  <div class="card">🦈 鲨鱼</div>
-  <div class="card">🐙 章鱼</div>
+        <nav>
 
-</div>
+            <a href="index.html">首页</a>
+
+            <a href="sea.html" class="active">海洋动物</a>
+
+            <a href="protect.html">保护计划</a>
+
+            <a href="#">关于</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==================== Banner ==================== -->
+
+    <section class="sea-banner">
+
+        <div class="banner-mask"></div>
+
+        <div class="banner-content">
+
+            <h1>海洋动物百科</h1>
+
+            <p>
+                探索深蓝生命，了解海洋生物的多样性与生存智慧
+            </p>
+
+        </div>
+
+
+        <!-- ==================== 分类 ==================== -->
+
+        <div class="category-area">
+
+            <!-- 深海鱼类 -->
+
+            <div class="glass-card">
+
+                <i class="fa-solid fa-fish"></i>
+
+                <h2>深海鱼类</h2>
+
+                <p>
+                    生活在数百至数千米深海，
+                    拥有发光器官和耐高压能力，
+                    是海洋中最神秘的生物之一。
+                </p>
+
+                <button>立即探索</button>
+
+            </div>
+
+            <!-- 海洋哺乳动物 -->
+
+            <div class="glass-card">
+
+                <i class="fa-solid fa-water"></i>
+
+                <h2>海洋哺乳动物</h2>
+
+                <p>
+                    包括鲸鱼、海豚、海豹等，
+                    具有高度智慧，
+                    是海洋生态系统的重要成员。
+                </p>
+
+                <button>立即探索</button>
+
+            </div>
+
+            <!-- 珊瑚礁 -->
+
+            <div class="glass-card">
+
+                <i class="fa-solid fa-fan"></i>
+
+                <h2>珊瑚礁生物</h2>
+
+                <p>
+                    珊瑚虫、小丑鱼、
+                    海葵等共同组成丰富多彩的
+                    珊瑚礁生态系统。
+                </p>
+
+                <button>立即探索</button>
+
+            </div>
+
+            <!-- 无脊椎 -->
+
+            <div class="glass-card">
+
+                <i class="fa-solid fa-water-ladder"></i>
+
+                <h2>海洋无脊椎动物</h2>
+
+                <p>
+                    包括章鱼、水母、
+                    海星、海胆、海参等，
+                    具有丰富的生存方式。
+                </p>
+
+                <button>立即探索</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== 功能按钮 ==================== -->
+
+    <section class="function-area">
+
+        <div class="function-box">
+
+            <i class="fa-solid fa-shield-heart"></i>
+
+            <span>重点保护物种</span>
+
+        </div>
+
+        <div class="function-box">
+
+            <i class="fa-solid fa-route"></i>
+
+            <span>迁徙路线</span>
+
+        </div>
+
+        <div class="function-box">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <span>栖息地现状</span>
+
+        </div>
+
+        <div class="function-box">
+
+            <i class="fa-solid fa-seedling"></i>
+
+            <span>科普活动</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== 海洋介绍 ==================== -->
+
+    <section class="intro">
+
+        <h2>探索神秘海洋世界</h2>
+
+        <div class="line"></div>
+
+        <p>
+
+            海洋覆盖了地球约71%的表面积，
+            是数百万种海洋生物共同生活的家园。
+
+            从阳光充足的浅海珊瑚礁，
+            到漆黑寒冷的深海海沟，
+
+            每一种环境都孕育着独特的生命形式。
+
+        </p>
+
+        <p>
+
+            本专区将带你认识深海鱼类、
+            海洋哺乳动物、
+            珊瑚礁生物以及海洋无脊椎动物，
+
+            共同探索神秘而壮丽的蓝色世界。
+
+        </p>
+
+    </section>
+
+
+    <!-- ==================== 页脚 ==================== -->
+
+    <footer>
+
+        <p>
+
+            © 2026 海洋动物百科 Ocean Animal Encyclopedia
+
+        </p>
+
+    </footer>
 
 </body>
+
 </html>
