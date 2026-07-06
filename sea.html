@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<div id="top"></div>
 <nav id="nav">
   <div>🐾 动物百科</div>
   <div>
@@ -70,9 +71,10 @@
     ©2026 海洋动物百科 Ocean Animal Encyclopedia
 </footer>
 
-<a href="#" class="top-btn">↑</a>
+<!-- 平滑回到顶部 -->
+<a href="#top" class="top-btn">↑</a>
 
-<!-- 导航滚动变色JS，和首页完全一致 -->
+<!-- 导航滚动变色JS -->
 <script>
 window.addEventListener("scroll",()=>{
   let nav = document.getElementById("nav");
