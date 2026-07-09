@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -60,10 +60,10 @@
             background-color: #d7e9e1;
         }
 
-        /* 鸟类Banner 对标sea-banner */
+        /* 鸟类Banner 只做顶部背景标题区域，高度65vh，不再装卡片 */
         .bird-banner {
             width: 100%;
-            height: 100vh;
+            height: 65vh;
             margin-top: 0;
             position: relative;
             background-image: url('https://picsum.photos/id/1044/1920/1080');
@@ -81,9 +81,9 @@
         }
         .banner-content {
             position: absolute;
-            top: 22%;
+            top: 50%;
             left: 50%;
-            transform: translate(-50%,0);
+            transform: translate(-50%,-50%);
             text-align: center;
             color: #fff;
             z-index: 2;
@@ -98,17 +98,15 @@
             opacity: 0.9;
         }
 
-        /* 分类玻璃卡片区域 完全复刻布局 */
+        /* 分类玻璃卡片区域：移出Banner，正常文档流，不会遮挡下方内容 */
         .category-area {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translateX(-50%);
             width: 85%;
+            margin: -80px auto 80px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 32px;
-            z-index: 2;
+            position: relative;
+            z-index: 10;
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.18);
@@ -120,9 +118,9 @@
             text-align: center;
             color: #ffffff;
             transition: all 0.3s ease;
-            /* 新增：卡片高度自适应，不会被图片撑破 */
             display: flex;
             flex-direction: column;
+            background-color: rgba(0,0,0,0.25);
         }
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.28);
@@ -130,11 +128,10 @@
         }
         .glass-card img {
             width: 100%;
-            height: 120px; /* 缩小图片高度，避免溢出压文字 */
+            height: 160px;
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 16px;
-            /* 图片严格限定在容器内，禁止向下溢出 */
             display: block;
             overflow: hidden;
         }
@@ -147,7 +144,6 @@
             line-height: 1.6;
             margin: 0 0 18px 0;
             opacity: 0.92;
-            /* 文字区域固定不被挤压 */
             flex-grow: 1;
         }
         .glass-card button {
@@ -168,7 +164,7 @@
         /* 介绍板块 */
         .intro {
             max-width: 1200px;
-            margin: 80px auto;
+            margin: 0 auto 80px;
             padding: 0 24px;
             text-align: center;
         }
@@ -237,47 +233,48 @@
   </div>
 </nav>
 
-<!-- =================== Banner =================== -->
+<!-- =================== 顶部Banner 仅标题背景 =================== -->
 <section class="bird-banner">
     <div class="banner-mask"></div>
     <div class="banner-content">
         <h1>翱翔天际 · 飞鸟生灵世界</h1>
         <p>探寻羽翼之下的自然奥秘，守护天空之下万千飞鸟</p>
     </div>
-
-    <div class="category-area">
-        <!-- 掠食猛禽 -->
-        <div class="glass-card">
-            <img src="https://picsum.photos/id/1024/600/320" alt="掠食猛禽">
-            <h3>🦅 掠食猛禽</h3>
-            <p>拥有锐利爪喙与超强视力，身居食物链顶端，调控山林小型动物种群数量。</p>
-            <a href="bird_raptor.html"><button>立即探索</button></a>
-        </div>
-        <!-- 观赏珍鸟 -->
-        <div class="glass-card">
-            <img src="https://picsum.photos/id/1065/600/320" alt="观赏珍鸟">
-            <h3>🦜 观赏珍鸟</h3>
-            <p>羽色艳丽鸣唱婉转，多被人工繁育观赏，野生原生种类大多列入保护名录。</p>
-            <a href="bird_view.html"><button>立即探索</button></a>
-        </div>
-        <!-- 迁徙候鸟水鸟 -->
-        <div class="glass-card">
-            <img src="https://picsum.photos/id/1071/600/320" alt="迁徙候鸟水鸟">
-            <h3>🦢 迁徙候鸟水鸟</h3>
-            <p>依托湿地河湖生存，春秋跨越千里长途迁徙，是水域生态环境的直观风向标。</p>
-            <a href="bird_migrate.html"><button>立即探索</button></a>
-        </div>
-        <!-- 珍稀保护鸟类 -->
-        <div class="glass-card">
-            <img src="https://picsum.photos/id/1068/600/320" alt="珍稀保护鸟类">
-            <h3>🕊️ 珍稀保护鸟类</h3>
-            <p>野外种群极度濒危，纳入国家一级重点保护物种，非法猎捕交易将承担法律责任。</p>
-            <a href="bird_rare.html"><button>立即探索</button></a>
-        </div>
-    </div>
 </section>
 
-<!-- =================== 介绍 =================== -->
+<!-- =================== 独立卡片区域 移出Banner，不再悬浮遮挡 =================== -->
+<div class="category-area">
+    <!-- 掠食猛禽 -->
+    <div class="glass-card">
+        <img src="https://picsum.photos/id/1024/600/320" alt="掠食猛禽">
+        <h3>🦅 掠食猛禽</h3>
+        <p>拥有锐利爪喙与超强视力，身居食物链顶端，调控山林小型动物种群数量。</p>
+        <a href="bird_raptor.html"><button>立即探索</button></a>
+    </div>
+    <!-- 观赏珍鸟 -->
+    <div class="glass-card">
+        <img src="https://picsum.photos/id/1065/600/320" alt="观赏珍鸟">
+        <h3>🦜 观赏珍鸟</h3>
+        <p>羽色艳丽鸣唱婉转，多被人工繁育观赏，野生原生种类大多列入保护名录。</p>
+        <a href="bird_view.html"><button>立即探索</button></a>
+    </div>
+    <!-- 迁徙候鸟水鸟 -->
+    <div class="glass-card">
+        <img src="https://picsum.photos/id/1071/600/320" alt="迁徙候鸟水鸟">
+        <h3>🦢 迁徙候鸟水鸟</h3>
+        <p>依托湿地河湖生存，春秋跨越千里长途迁徙，是水域生态环境的直观风向标。</p>
+        <a href="bird_migrate.html"><button>立即探索</button></a>
+    </div>
+    <!-- 珍稀保护鸟类 -->
+    <div class="glass-card">
+        <img src="https://picsum.photos/id/1068/600/320" alt="珍稀保护鸟类">
+        <h3>🕊️ 珍稀保护鸟类</h3>
+        <p>野外种群极度濒危，纳入国家一级重点保护物种，非法猎捕交易将承担法律责任。</p>
+        <a href="bird_rare.html"><button>立即探索</button></a>
+    </div>
+</div>
+
+<!-- =================== 下方介绍文字 不会再被卡片遮挡 =================== -->
 <section class="intro">
     <h2>探索飞鸟生灵世界</h2>
     <div class="line"></div>
