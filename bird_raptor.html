@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bird.css">
     <style>
+        /* 导航统一样式 */
+        #top{
+            height: 0;
+        }
         #nav {
             width: 100%;
             position: fixed;
@@ -14,46 +18,34 @@
             left: 0;
             z-index: 999;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
-            padding: 18px 40px;
-            background-color: rgba(255,255,255,0.15);
+            gap: 60px;
+            padding: 20px 60px;
+            background-color: rgba(255,255,255,0.08);
             transition: all 0.3s ease;
         }
         #nav.scrolled {
-            background-color: #e8f3ee;
-            box-shadow: 0 2px 12px rgba(120, 160, 140, 0.18);
+            background-color: #0f3443;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
         }
-        #nav div:first-child {
-            font-size: 22px;
-            font-weight: 600;
+        #nav .logo-text{
+            font-size: 24px;
+            font-weight: bold;
             color: #fff;
-            letter-spacing: 1px;
-        }
-        #nav.scrolled div:first-child {
-            color: #3a6b5a;
         }
         #nav a {
-            margin: 0 10px;
             text-decoration: none;
             color: #ffffff;
-            font-size: 15px;
-            padding: 6px 10px;
-            border-radius: 6px;
+            font-size: 48px;
             transition: 0.3s;
         }
-        #nav.scrolled a {
-            color: #446357;
-        }
         #nav a.active {
-            background-color: #c8e2d7;
-            color: #2d5748 !important;
+            color: #ffdd00;
+            border-bottom: 4px solid #ffdd00;
         }
         #nav a:hover {
-            background-color: rgba(255,255,255,0.25);
-        }
-        #nav.scrolled a:hover {
-            background-color: #d7e9e1;
+            color: #ffdd00;
         }
 
         .raptor-banner {
@@ -317,15 +309,14 @@
 
 <body>
 <div id="top"></div>
+<!-- 本页active为【掠食猛禽】 -->
 <nav id="nav">
-  <div>🐾 动物百科</div>
-  <div>
-    <a href="index.html">首页</a>
-    <a href="land.html">陆地</a>
-    <a href="sea.html">海洋</a>
-    <a href="bird.html" class="active">鸟类</a>
-    <a href="protect.html">保护</a>
-  </div>
+  <div class="logo-text">🐾 动物百科</div>
+  <a href="index.html">首页</a>
+  <a href="land.html">陆地</a>
+  <a href="sea.html">海洋</a>
+  <a href="bird_raptor.html" class="active">掠食猛禽</a>
+  <a href="protect.html">保护</a>
 </nav>
 
 <section class="raptor-banner">
