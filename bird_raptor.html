@@ -3,81 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>猛禽鸟类详情 | 飞禽鸟类专区</title>
+    <title>掠食猛禽专题 | 飞禽鸟类百科</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bird.css">
     <style>
-        body{
+        #nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background-color: rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
+        }
+        #nav.scrolled {
+            background-color: #e8f3ee;
+            box-shadow: 0 2px 12px rgba(120, 160, 140, 0.18);
+        }
+        #nav div:first-child {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        #nav.scrolled div:first-child {
+            color: #3a6b5a;
+        }
+        #nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 15px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        #nav.scrolled a {
+            color: #446357;
+        }
+        #nav a.active {
+            background-color: #c8e2d7;
+            color: #2d5748 !important;
+        }
+        #nav a:hover {
+            background-color: rgba(255,255,255,0.25);
+        }
+        #nav.scrolled a:hover {
+            background-color: #d7e9e1;
+        }
+
+        .raptor-banner {
+            width: 100%;
+            height: 60vh;
+            margin-top: 64px;
+            position: relative;
             background-image: url('https://picsum.photos/id/1046/1920/1080');
             background-size: cover;
-            background-attachment: fixed;
             background-position: center;
-            background-color: rgba(247, 251, 249, 0.93);
-            background-blend-mode: overlay;
+            background-attachment: fixed;
         }
-        .page-title{
-            background: rgba(255,255,255,0.78);
-            padding:24px 16px;
-            border-radius:16px;
+        .banner-mask {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.42);
         }
-        .tips-block{
-            background: rgba(232, 243, 238, 0.9);
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color: #fff;
+        }
+        .banner-content h1 {
+            font-size: 42px;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+        .banner-content p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .common-title {
+            font-size: 28px;
+            color: #356655;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .line {
+            width: 80px;
+            height: 3px;
+            background-color: #73b89f;
+            margin: 0 auto 30px;
+            border-radius: 3px;
+        }
+
+        .intro {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+        .intro p {
+            line-height: 1.8;
+            color: #2c3e35;
+            font-size: 16px;
+            text-indent: 2em;
+        }
+
+        .species-grid {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .species-card {
+            background: #ffffff;
+            border: 1px solid #e1ede8;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(135, 175, 160, 0.08);
+            transition: all 0.3s ease;
+        }
+        .species-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 18px rgba(120, 165, 145, 0.14);
+        }
+        .species-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .species-content {
+            padding: 24px;
+        }
+        .species-content h3 {
+            color: #2f5e4e;
+            font-size: 20px;
+            margin-bottom: 12px;
+            padding-left: 8px;
+            border-left: 4px solid #73b89f;
+        }
+        .species-content p {
+            color: #4a6b5f;
+            line-height: 1.7;
+            font-size: 14.5px;
+        }
+        .species-content strong {
+            color: #c0392b;
+        }
+
+        .bird-eco {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
+        }
+        .eco-desc {
+            line-height: 1.8;
+            text-indent: 2em;
+            color: #2c3e35;
+            font-size: 16px;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+            background-color: #e8f3ee;
+            color: #608073;
+            font-size: 14px;
+        }
+
+        .top-btn {
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+            width: 46px;
+            height: 46px;
+            background: #81bca6;
+            color: #fff;
+            text-align: center;
+            line-height: 46px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            z-index: 998;
+        }
+        .top-btn:hover {
+            background: #5fa88d;
+        }
+        .back-index{
+            display:block;
+            text-align:center;
+            margin-bottom:20px;
+            color:#487d6b;
+            text-decoration:none;
         }
     </style>
 </head>
+
 <body>
-<header class="nav-header">
-    <nav class="navbar">
-        <div class="logo">动物世界科普平台</div>
-        <ul class="nav-list">
-            <li><a href="index.html">网站首页</a></li>
-            <li><a href="land.html">陆生动物</a></li>
-            <li><a href="sea.html">海洋生物</a></li>
-            <li><a href="bird.html" class="active">飞禽鸟类</a></li>
-            <li><a href="protect.html">动物保护</a></li>
-        </ul>
-    </nav>
-</header>
+<div id="top"></div>
+<nav id="nav">
+  <div>🐾 动物世界科普平台</div>
+  <div>
+    <a href="index.html">网站首页</a>
+    <a href="land.html">陆生动物</a>
+    <a href="sea.html">海洋生物</a>
+    <a href="bird.html" class="active">飞禽鸟类</a>
+    <a href="protect.html">动物保护</a>
+  </div>
+</nav>
 
-<main class="container">
-    <div class="page-title">
-        <h1>🦅 掠食猛禽专区</h1>
-        <p>昼行与夜行肉食猛禽，顶尖视觉与捕猎天赋，维系山林生态平衡</p>
-        <a href="bird.html">← 返回鸟类分类总首页</a>
+<section class="raptor-banner">
+    <div class="banner-mask"></div>
+    <div class="banner-content">
+        <h1>🦅 掠食猛禽专题</h1>
+        <p>长空猎手，山林天敌，自然生态的种群调控者</p>
     </div>
+</section>
 
-    <div class="animal-card-wrap">
-        <div class="animal-card">
-            <img src="https://picsum.photos/id/1024/600/320" alt="苍鹰" style="width:100%;border-radius:10px;margin-bottom:14px;object-fit:cover;">
-            <h3>苍鹰</h3>
-            <p><strong>保护级别：国家二级保护动物</strong></p>
-            <p>典型日间林地猛禽，翅膀短宽便于林间穿梭追捕猎物，视力是人眼的8倍以上，主食野兔、鼠类、小型雀鸟。苍鹰领地意识极强，一对亲鸟会共同抚育幼鸟，非法猎捕饲养属于违法行为。</p>
+<section class="intro">
+    <h2 class="common-title">猛禽类群概述</h2>
+    <div class="line"></div>
+    <p>猛禽泛指隼形目与鸮形目肉食性鸟类，依靠超强远视视觉、钩状利喙与穿刺利爪完成捕猎。昼行鹰隼类擅长高空盘旋俯冲猎杀，夜行猫头鹰依靠听觉定位地下猎物。所有猛禽均为益鸟，大幅抑制鼠害、泛滥小型兽类数量，维持山林农田生态平衡。我国法律明确规定，所有野生猛禽全部属于国家二级及以上保护动物，禁止任何捕捉、贩卖、私自饲养行为。</p>
+    <a href="bird.html" class="back-index">← 返回鸟类总专区首页</a>
+</section>
+
+<section>
+    <h2 class="common-title">三大代表猛禽物种</h2>
+    <div class="line"></div>
+    <div class="species-grid">
+        <div class="species-card">
+            <img src="https://picsum.photos/id/1024/600/320" alt="苍鹰">
+            <div class="species-content">
+                <h3>苍鹰</h3>
+                <p><strong>保护级别：国家二级保护动物</strong></p>
+                <p>典型林地日间猛禽，身形紧凑灵活，可在密林间穿梭追捕野兔、田鼠与小型雀鸟。视力是人眼8倍以上，领地意识极强，成对共同抚育幼雏，非法猎捕驯养会依法处罚。</p>
+            </div>
         </div>
-        <div class="animal-card">
-            <img src="https://picsum.photos/id/1059/600/320" alt="长耳猫头鹰" style="width:100%;border-radius:10px;margin-bottom:14px;object-fit:cover;">
-            <h3>长耳鸮（长耳猫头鹰）</h3>
-            <p><strong>保护级别：国家二级保护动物</strong></p>
-            <p>经典夜行益鸟，头顶耳羽并非耳朵，而是羽毛装饰，可收拢声波精准定位地下田鼠。一只长耳鸮一年可消灭上千只农田害鼠，极大减少农作物损耗，我国所有鸮类全部纳入保护名录。</p>
+        <div class="species-card">
+            <img src="https://picsum.photos/id/1059/600/320" alt="长耳鸮">
+            <div class="species-content">
+                <h3>长耳鸮（长耳猫头鹰）</h3>
+                <p><strong>保护级别：国家二级保护动物</strong></p>
+                <p>经典夜行益鸟，头顶耳羽用于聚拢声波，无光环境精准捕捉田鼠。单只长耳鸮一年可消灭上千只农田害鼠，极大降低粮食损耗，国内全部鸮类均受法律强制保护。</p>
+            </div>
         </div>
-        <div class="animal-card">
-            <img src="https://picsum.photos/id/1010/600/320" alt="金雕" style="width:100%;border-radius:10px;margin-bottom:14px;object-fit:cover;">
-            <h3>金雕</h3>
-            <p><strong>保护级别：国家一级保护动物</strong></p>
-            <p>体型最大的猛禽之一，翼展可达2米，可俯冲捕猎山羊、狐狸等中型猎物，是高原与山地生态的顶级捕食者。金雕寿命最长可达50年，在传统文化中象征威武，私自伤害将承担刑事责任。</p>
+        <div class="species-card">
+            <img src="https://picsum.photos/id/1010/600/320" alt="金雕">
+            <div class="species-content">
+                <h3>金雕</h3>
+                <p><strong>保护级别：国家一级保护动物</strong></p>
+                <p>国内体型最大猛禽之一，翼展可达2米，可俯冲捕猎山羊、狐狸等中型猎物，栖息于高原山地。野外种群数量稀少，伤害金雕可追究刑事责任，最长刑期十年以上。</p>
+            </div>
         </div>
     </div>
+</section>
 
-    <section class="tips-block">
-        <h2>猛禽保护提示</h2>
-        <ul>
-            <li>我国境内所有野生鹰类、鸮类均属于国家保护野生动物，严禁捕捉、贩卖、私养</li>
-            <li>发现受伤猛禽切勿自行投喂喂食，猛禽应激极易死亡，直接联系当地林业救助部门</li>
-        </ul>
-    </section>
-</main>
+<section class="bird-eco">
+    <h2 class="common-title">猛禽保护法律与科普</h2>
+    <div class="line"></div>
+    <p class="eco-desc">猛禽难以人工规模化繁育，野外种群一旦遭到捕猎很难快速恢复。很多人出于猎奇心态网购老鹰、猫头鹰作为宠物，此类交易全程违法，平台与线下商贩都会被追责。若遇到受伤落单猛禽，切勿自行喂食笼养，猛禽极易应激猝死，应当第一时间联系当地林业和草原局、野生动物救助中心，由专业人员收容救治后野放。</p>
+</section>
 
-<footer class="footer">
-    <p>© 2026 动物世界科普项目</p>
+<footer>
+    ©2026 动物世界科普平台 Bird Encyclopedia
 </footer>
+
+<a href="#top" class="top-btn">↑</a>
+
+<script>
+window.addEventListener("scroll",()=>{
+  let nav = document.getElementById("nav");
+  if(window.scrollY>50){
+    nav.classList.add("scrolled");
+  }else{
+    nav.classList.remove("scrolled");
+  }
+});
+</script>
 </body>
 </html>
