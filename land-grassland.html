@@ -3,37 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>草原动物 - 陆地野生动物</title>
+    <title>草原动物专题 | 陆地野生动物</title>
     <link rel="stylesheet" href="../land.css">
+    <style>
+        /* 继承 land.css 深色风格 + 局部调整 */
+        #nav {
+            background-color: rgba(15,23,42,0.95);
+        }
+        #nav.scrolled {
+            background-color: #1e2937;
+        }
+        #nav a.active {
+            color: #86efac;
+            border-bottom: 4px solid #86efac;
+        }
+        .grass-banner {
+            width: 100%;
+            height: 60vh;
+            margin-top: 64px;
+            position: relative;
+            background-image: url('../images/grassland.jpg'); /* ← 换成你的草原大图 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .banner-mask {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15,23,42,0.55);
+        }
+        .banner-content h1 {
+            color: #86efac;
+        }
+        .common-title {
+            font-size: 28px;
+            color: #86efac;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .line {
+            width: 80px;
+            height: 3px;
+            background-color: #4ade80;
+            margin: 0 auto 30px;
+        }
+        .intro, .eco-desc {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+        .layer-image img, .feature-img img, .species-card img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+        }
+        .species-card {
+            background: #1e2937;
+            border: 1px solid rgba(134,239,172,0.2);
+        }
+        .species-content h3 {
+            color: #86efac;
+        }
+        footer {
+            background-color: #0a0f1c;
+            color: #64748b;
+        }
+    </style>
 </head>
 <body>
 <div id="top"></div>
 
-<nav id="nav"> ... (同上) </nav>
+<nav id="nav">
+  <div class="logo-text">🌍 动物世界</div>
+  <a href="../../index.html">首页</a>
+  <a href="../land.html" class="active">陆地</a>
+  <a href="../../sea/sea.html">海洋</a>
+  <a href="../../bird.html">鸟类</a>
+  <a href="../../protect.html">保护</a>
+</nav>
 
-<section class="land-banner" style="min-height:60vh;background-image:linear-gradient(rgba(0,0,0,.4),rgba(30,60,40,.5)), url('../images/grassland.jpg');">
+<section class="grass-banner">
     <div class="banner-mask"></div>
-    <div class="banner-content">
-        <h1>🌾 草原动物</h1>
-        <p>速度与力量的舞台</p>
+    <div class="banner-content" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:white;">
+        <h1>🌾 草原动物专题</h1>
+        <p>速度与力量的广阔舞台</p>
     </div>
 </section>
 
 <section class="intro">
-    <h2>广阔草原的生命交响曲</h2>
+    <h2 class="common-title">草原动物类群概述</h2>
     <div class="line"></div>
-    <p>草原是地球上最壮阔的生态系统之一。这里有成群奔跑的食草动物，也有潜伏的顶级捕食者。它们共同维持着这片土地的平衡。</p>
-    
-    <img src="../images/lion.jpg" alt="非洲狮" style="width:100%; max-height:400px; object-fit:cover; border-radius:12px; margin:30px 0;"> <!-- ← 放图片 -->
-    
-    <h3>代表动物</h3>
-    <p>非洲狮是草原之王，它们以群体合作狩猎著称；斑马的条纹帮助它们在群体中迷惑天敌；非洲象作为最大的陆生动物，在草原上扮演着“生态工程师”的角色。</p>
-    
-    <img src="../images/zebra.jpg" alt="斑马" style="width:100%; max-height:400px; object-fit:cover; border-radius:12px; margin:30px 0;"> <!-- ← 放图片 -->
+    <p>草原是地球上分布最广的陆地生态系统之一，占据了约40%的陆地面积。这里生活着大量食草动物和顶级捕食者，形成独特的食物链。非洲大草原、欧亚草原、潘帕斯草原等都是著名代表。我国内蒙古、青海、西藏等地也有大面积草原，是众多珍稀动物的家园。</p>
+    <a href="../land.html" class="back-index" style="color:#86efac;">← 返回陆地动物总专区</a>
 </section>
 
-<footer>©2026 动物世界</footer>
+<section>
+    <h2 class="common-title">草原动物两大生存特征</h2>
+    <div class="line"></div>
+    <div class="layer-wrap" style="max-width:1200px;margin:0 auto 80px;padding:0 24px;display:flex;flex-direction:column;gap:50px;">
+        
+        <div class="layer-item" style="display:flex;gap:40px;align-items:center;">
+            <div class="layer-image" style="flex:1;">
+                <img src="../images/lion.jpg" alt="非洲狮">   <!-- ← 替换图片 -->
+            </div>
+            <div class="layer-text" style="flex:1;">
+                <span class="layer-depth" style="background:#166534;color:#86efac;">顶级捕食者</span>
+                <h3>群体狩猎与领地意识</h3>
+                <p>非洲狮是草原上最著名的社会性猫科动物，它们以家族为单位合作狩猎，雄狮负责守护领地，雌狮主要负责捕猎。</p>
+            </div>
+        </div>
+
+        <div class="layer-item" style="display:flex;gap:40px;align-items:center;flex-direction:row-reverse;">
+            <div class="layer-image" style="flex:1;">
+                <img src="../images/zebra.jpg" alt="斑马">   <!-- ← 替换图片 -->
+            </div>
+            <div class="layer-text" style="flex:1;">
+                <span class="layer-depth" style="background:#166534;color:#86efac;">食草迁徙者</span>
+                <h3>大规模迁徙与条纹伪装</h3>
+                <p>斑马以其独特的黑白条纹闻名，这种条纹在群体中可以迷惑捕食者，同时帮助个体识别同伴。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feature-wrap">
+    <h2 class="common-title">草原动物关键生存特征</h2>
+    <div class="line"></div>
+    <div class="feature-box" style="max-width:1000px;margin:0 auto;padding:0 24px;">
+        <div class="feature-text">
+            <h3>适应开阔环境的演化特点</h3>
+            <ul class="feature-list" style="color:#cbd5e1;">
+                <li><strong>高速奔跑能力</strong>：长腿、强壮心肺系统，能长时间高速奔跑躲避天敌。</li>
+                <li><strong>群居生活习性</strong>：大型食草动物成群活动可有效降低被捕食风险。</li>
+                <li><strong>季节性迁徙</strong>：随水草资源变化进行长距离迁徙。</li>
+                <li><strong>强大消化系统</strong>：能消化粗糙的草原植物。</li>
+            </ul>
+        </div>
+        <div class="feature-img">
+            <img src="../images/elephant.jpg" alt="非洲象">   <!-- ← 替换图片 -->
+        </div>
+    </div>
+</section>
+
+<section class="species-wrap">
+    <h2 class="common-title">三大典型草原动物</h2>
+    <div class="line"></div>
+    <div class="species-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto;padding:0 24px;">
+        
+        <div class="species-card">
+            <img src="../images/lion.jpg" alt="非洲狮">
+            <div class="species-content">
+                <h3>非洲狮</h3>
+                <p><strong>保护级别：易危</strong></p>
+                <p>草原之王，群居生活，雄狮拥有标志性鬃毛。</p>
+            </div>
+        </div>
+        
+        <div class="species-card">
+            <img src="../images/zebra.jpg" alt="斑马">
+            <div class="species-content">
+                <h3>斑马</h3>
+                <p><strong>保护级别：近危</strong></p>
+                <p>黑白条纹是其独特标志，常与角马、长颈鹿共同迁徙。</p>
+            </div>
+        </div>
+        
+        <div class="species-card">
+            <img src="../images/elephant.jpg" alt="非洲象">
+            <div class="species-content">
+                <h3>非洲象</h3>
+                <p><strong>保护级别：濒危</strong></p>
+                <p>陆地上最大的陆生动物，具有极高的生态价值。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="eco-wrap">
+    <h2 class="common-title">草原生态保护意义</h2>
+    <div class="line"></div>
+    <p class="eco-desc">草原不仅是动物们的家园，更是碳汇的重要场所。过度放牧、土地荒漠化、非法狩猎正严重威胁草原生态系统。保护草原动物，就是保护地球的绿色之肺。</p>
+</section>
+
+<footer>
+    ©2026 动物世界科普平台
+</footer>
 <a href="#top" class="top-btn">↑</a>
-<!-- scroll script 同上 -->
+
+<script>
+window.addEventListener("scroll",()=>{
+  let nav = document.getElementById("nav");
+  if(window.scrollY>50){
+    nav.classList.add("scrolled");
+  }else{
+    nav.classList.remove("scrolled");
+  }
+});
+</script>
 </body>
 </html>
