@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>陆地野生动物专区 - 动物世界</title>
+    <title>陆地野生动物 - 动物世界</title>
     <link rel="stylesheet" href="land.css">
 </head>
 <body>
+    <!-- 导航栏 -->
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="logo">🌍 动物世界</a>
@@ -20,111 +21,65 @@
         </div>
     </nav>
 
+    <!-- Hero 主标题 -->
     <div class="hero">
         <h1>陆地野生动物</h1>
         <p>探索地球陆地生态的奇妙生灵</p>
     </div>
 
-    <main class="container">
-
-        <!-- 草原动物 -->
-        <section class="section">
-            <h2 class="section-title">🌾 草原动物</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1618146062150-5c4c1c9c5a0a" alt="非洲狮">
-                    <div class="card-content">
-                        <h3>非洲狮</h3>
-                        <p>草原之王，群居生活，顶级捕食者。</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d" alt="斑马">
-                    <div class="card-content">
-                        <h3>斑马</h3>
-                        <p>黑白条纹是其独特标志，群居奔跑。</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1581852017104-2d3a5f7f3a3f" alt="非洲象">
-                    <div class="card-content">
-                        <h3>非洲象</h3>
-                        <p>陆地上最大的陆生动物，社会性强。</p>
-                    </div>
-                </div>
+    <!-- 四大分类卡片 -->
+    <div class="categories">
+        <div class="category-card" onclick="window.location.href='#grassland'">
+            <img src="https://images.unsplash.com/photo-1546587348-4e9c4f4e3c3f" alt="草原">
+            <div class="overlay">
+                <span class="emoji">🌾</span>
+                <h3>草原动物</h3>
+                <p>狮子、斑马、大象等</p>
+                <button class="explore-btn">立即探索</button>
             </div>
-        </section>
+        </div>
 
-        <!-- 森林动物 -->
-        <section class="section">
-            <h2 class="section-title">🌲 森林动物</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1588668215406-3a8f9a5e8c1f" alt="大熊猫">
-                    <div class="card-content">
-                        <h3>大熊猫</h3>
-                        <p>中国国宝，濒危物种，主要以竹子为食。</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1570549715660-8c6f8b9a8b0d" alt="梅花鹿">
-                    <div class="card-content">
-                        <h3>梅花鹿</h3>
-                        <p>优雅的森林精灵，梅花状斑点。</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="金丝猴">
-                    <div class="card-content">
-                        <h3>金丝猴</h3>
-                        <p>珍稀灵长类，毛色金黄。</p>
-                    </div>
-                </div>
+        <div class="category-card" onclick="window.location.href='#forest'">
+            <img src="https://images.unsplash.com/photo-1542204165-65bf264072ce" alt="森林">
+            <div class="overlay">
+                <span class="emoji">🌲</span>
+                <h3>森林动物</h3>
+                <p>大熊猫、小鹿、金丝猴等</p>
+                <button class="explore-btn">立即探索</button>
             </div>
-        </section>
+        </div>
 
-        <!-- 荒漠动物 -->
-        <section class="section">
-            <h2 class="section-title">🏜️ 荒漠动物</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a1c8e0a2d3a0" alt="骆驼">
-                    <div class="card-content">
-                        <h3>双峰骆驼</h3>
-                        <p>沙漠之舟，能长时间耐饥渴。</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1602491455631-5c7c8b5e5e5e" alt="沙漠狐">
-                    <div class="card-content">
-                        <h3>耳廓狐</h3>
-                        <p>耳朵巨大，适应沙漠炎热环境。</p>
-                    </div>
-                </div>
+        <div class="category-card" onclick="window.location.href='#desert'">
+            <img src="https://images.unsplash.com/photo-1509316785289-025f5b8464b4" alt="荒漠">
+            <div class="overlay">
+                <span class="emoji">🏜️</span>
+                <h3>荒漠动物</h3>
+                <p>骆驼、耳廓狐、蜥蜴等</p>
+                <button class="explore-btn">立即探索</button>
             </div>
-        </section>
+        </div>
 
-        <!-- 极地陆地动物 -->
-        <section class="section">
-            <h2 class="section-title">❄️ 极地陆地动物</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1589652717525-3a3f0f0f0f0f" alt="北极熊">
-                    <div class="card-content">
-                        <h3>北极熊</h3>
-                        <p>北极的顶级捕食者，依赖海冰生存。</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1570549715660-8c6f8b9a8b0d" alt="北极狐">
-                    <div class="card-content">
-                        <h3>北极狐</h3>
-                        <p>毛色随季节变化，适应极寒环境。</p>
-                    </div>
-                </div>
+        <div class="category-card" onclick="window.location.href='#polar'">
+            <img src="https://images.unsplash.com/photo-1511497588687-8b6d2e9c3f2a" alt="极地">
+            <div class="overlay">
+                <span class="emoji">❄️</span>
+                <h3>极地动物</h3>
+                <p>北极熊、北极狐等</p>
+                <button class="explore-btn">立即探索</button>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+
+    <!-- 详细介绍区 -->
+    <div id="grassland" class="detail-section">
+        <h2>🌾 草原动物</h2>
+        <!-- 这里可以继续放更多卡片 -->
+    </div>
+
+    <!-- 视觉冲击力大图 -->
+    <div class="impact-image">
+        <img src="https://images.unsplash.com/photo-1547036967-5c5f3c5c5c5c" alt="壮丽陆地景观">
+    </div>
 
     <footer>
         <p>动物世界科普网站 © 2026 | 陆地野生动物专区</p>
