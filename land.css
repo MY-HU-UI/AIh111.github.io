@@ -1,93 +1,236 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body { 
-    background: #0f172a; 
-    color: #e2e8f0; 
-    font-family: 'Microsoft YaHei', sans-serif; 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* 导航 */
-.nav { background: #1e2937; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
-.nav-container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.8rem; text-decoration: none; color: #4ade80; }
-.nav-menu a { color: #cbd5e1; margin-left: 2rem; text-decoration: none; }
-.nav-menu a.active, .nav-menu a:hover { color: #86efac; }
+html{ scroll-behavior:smooth; }
 
-/* Hero */
-.hero {
-    height: 55vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511497588687-8b6d2e9c3f2a') center/cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-.hero h1 { font-size: 3.8rem; color: #86efac; margin-bottom: 0.5rem; }
-
-/* 四大分类 */
-.categories {
-    max-width: 1300px;
-    margin: 3rem auto;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+body{
+    font-family:"Microsoft YaHei",sans-serif;
+    background:#0f172a;
+    color:#e2e8f0;
+    overflow-x:hidden;
 }
 
-.category-card {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    height: 380px;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transition: 0.4s;
+img{
+    max-width:100%;
+    display:block;
+    transition:.35s;
+}
+img:hover{ transform:scale(1.02); }
+
+/* 顶部导航 */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 40px;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  transition:0.3s;
+  z-index:999;
 }
 
-.category-card:hover { transform: scale(1.05); }
-
-.category-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+nav.scrolled{
+  background:#1e2937;
 }
 
-.overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(15,23,42,0.95));
-    padding: 2rem 1.5rem 1.5rem;
-    text-align: center;
+nav a{
+  color:white;
+  margin:0 12px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
 }
 
-.overlay .emoji { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
-.overlay h3 { font-size: 1.8rem; color: #86efac; margin-bottom: 0.5rem; }
-
-.explore-btn {
-    margin-top: 1rem;
-    padding: 10px 28px;
-    background: #4ade80;
-    color: #0f172a;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
+nav a:hover, nav a.active{
+  color:#86efac;
 }
 
-/* 视觉冲击大图 */
-.impact-image {
-    max-width: 1400px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-}
-.impact-image img {
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+/* Banner */
+.land-banner{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    padding-top:80px;
+    background:linear-gradient(rgba(0,0,0,.4),rgba(30,60,40,.5)), url("images/land-banner.jpg"); /* ← 你放主横幅大图 */
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
-/* Footer */
-footer { text-align: center; padding: 3rem; background: #0a0f1c; color: #64748b; }
+.banner-mask{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:linear-gradient(rgba(15,23,42,.3),rgba(34,139,34,.25));
+    z-index:1;
+}
+
+.banner-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    text-align:center;
+    color:white;
+    padding:80px 20px 40px;
+}
+
+.banner-content h1{
+    font-size:64px;
+    letter-spacing:4px;
+    margin-bottom:25px;
+    text-shadow:0 6px 18px rgba(0,0,0,.6);
+    color:#86efac;
+}
+
+.banner-content p{
+    font-size:24px;
+    letter-spacing:2px;
+    text-shadow:0 3px 10px rgba(0,0,0,.5);
+}
+
+/* 卡片区域 */
+.category-area{
+    position:relative;
+    z-index:2;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:wrap;
+    padding:20px 20px 80px;
+}
+
+.glass-card{
+    width:270px;
+    min-height:380px;
+    padding:25px 20px;
+    border-radius:22px;
+    background:rgba(30,41,59,0.85);
+    border:1px solid rgba(134,239,172,0.3);
+    text-align:center;
+    color:white;
+    transition:.4s;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.glass-card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 20px 45px rgba(134,239,172,0.25);
+}
+
+.glass-card img{
+    width:100%;
+    height:140px;
+    border-radius:14px;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+.glass-card h3{
+    font-size:22px;
+    margin-bottom:12px;
+    color:#86efac;
+}
+
+.glass-card p{
+    font-size:15px;
+    line-height:26px;
+    color:rgba(226,232,240,0.9);
+    min-height:75px;
+}
+
+.glass-card button{
+    margin-top:18px;
+    width:150px;
+    height:45px;
+    border:none;
+    border-radius:30px;
+    background:#4ade80;
+    color:#0f172a;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.glass-card button:hover{
+    background:white;
+    color:#166534;
+    transform:scale(1.05);
+}
+
+/* 介绍区 */
+.intro{
+    width:100%;
+    background:#1e2937;
+    padding:80px 15%;
+    text-align:center;
+}
+
+.intro h2{
+    color:#86efac;
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.line{
+    width:90px;
+    height:4px;
+    margin:0 auto 35px;
+    background:#4ade80;
+    border-radius:5px;
+}
+
+.intro p{
+    color:#cbd5e1;
+    font-size:18px;
+    line-height:36px;
+    max-width:800px;
+    margin:0 auto;
+}
+
+/* 页脚 */
+footer{
+    background:#0a0f1c;
+    color:#64748b;
+    text-align:center;
+    padding:30px;
+}
+
+/* 返回顶部 */
+.top-btn{
+    position:fixed;
+    right:30px;
+    bottom:35px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#4ade80;
+    color:#0f172a;
+    text-align:center;
+    line-height:55px;
+    font-size:24px;
+    box-shadow:0 8px 18px rgba(0,0,0,.4);
+    transition:.35s;
+    z-index:999;
+    text-decoration:none;
+}
+.top-btn:hover{
+    background:#86efac;
+    transform:translateY(-6px);
+}
+
+/* 响应式 */
+@media screen and (max-width:992px){
+    .glass-card{width:320px;}
+}
+
+@media screen and (max-width:768px){
+    nav{ flex-direction:column; padding:15px; gap:12px; }
+    .glass-card{width:90%; max-width:360px;}
+}
