@@ -3,21 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>极地动物 - 陆地野生动物</title>
+    <title>极地动物专题 | 陆地野生动物</title>
     <link rel="stylesheet" href="../land.css">
+    <style>
+        /* 深色陆地风格适配 */
+        #nav {
+            background-color: rgba(15,23,42,0.95);
+        }
+        #nav.scrolled {
+            background-color: #1e2937;
+        }
+        #nav a.active {
+            color: #86efac;
+            border-bottom: 4px solid #86efac;
+        }
+        .polar-banner {
+            width: 100%;
+            height: 60vh;
+            margin-top: 64px;
+            position: relative;
+            background-image: url('../images/polar.jpg'); /* ← 替换成你的极地大图 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .banner-mask {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15,23,42,0.6);
+        }
+        .banner-content h1 {
+            color: #86efac;
+        }
+        .common-title {
+            font-size: 28px;
+            color: #86efac;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .line {
+            width: 80px;
+            height: 3px;
+            background-color: #4ade80;
+            margin: 0 auto 30px;
+            border-radius: 3px;
+        }
+        .intro p, .eco-desc {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+        .layer-image img, .feature-img img, .species-card img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+        }
+        .species-card {
+            background: #1e2937;
+            border: 1px solid rgba(134,239,172,0.2);
+        }
+        .species-content h3 {
+            color: #86efac;
+        }
+        footer {
+            background-color: #0a0f1c;
+            color: #64748b;
+        }
+    </style>
 </head>
 <body>
 <div id="top"></div>
 
-<nav id="nav"> ... (同上) </nav>
-<!-- Banner 用 polar.jpg -->
-<section class="intro">
-    <h2>极寒世界的白色勇士</h2>
-    <p>北极熊是北极的象征，它们的白色皮毛提供完美伪装；北极狐则能在-50℃的极端环境中生存...</p>
-    <img src="../images/polar-bear.jpg" alt="北极熊" style="..."> <!-- ← 图片位置 -->
+<nav id="nav">
+  <div class="logo-text">🌍 动物世界</div>
+  <a href="../../index.html">首页</a>
+  <a href="../land.html" class="active">陆地</a>
+  <a href="../../sea/sea.html">海洋</a>
+  <a href="../../bird.html">鸟类</a>
+  <a href="../../protect.html">保护</a>
+</nav>
+
+<section class="polar-banner">
+    <div class="banner-mask"></div>
+    <div class="banner-content" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:white;">
+        <h1>❄️ 极地动物专题</h1>
+        <p>冰雪世界的白色勇士</p>
+    </div>
 </section>
-<footer>©2026 动物世界</footer>
+
+<section class="intro">
+    <h2 class="common-title">极地动物类群概述</h2>
+    <div class="line"></div>
+    <p>极地（北极和南极地区）是地球上最寒冷的陆地环境，冰雪覆盖，常年低温。在这样的极端条件下，极地动物进化出了厚厚的脂肪层、白色伪装毛发等适应机制。北极熊、北极狐等是典型代表。</p>
+    <a href="../land.html" class="back-index" style="color:#86efac;">← 返回陆地动物总专区</a>
+</section>
+
+<section>
+    <h2 class="common-title">极地动物两大生存策略</h2>
+    <div class="line"></div>
+    <div class="layer-wrap" style="max-width:1200px;margin:0 auto 80px;padding:0 24px;display:flex;flex-direction:column;gap:50px;">
+        
+        <div class="layer-item" style="display:flex;gap:40px;align-items:center;">
+            <div class="layer-image" style="flex:1;">
+                <img src="../images/polar-bear.jpg" alt="北极熊">   <!-- ← 替换图片 -->
+            </div>
+            <div class="layer-text" style="flex:1;">
+                <span class="layer-depth" style="background:#166534;color:#86efac;">顶级捕食者</span>
+                <h3>北极熊</h3>
+                <p>北极的象征，拥有厚厚的脂肪层和白色毛发，能在冰雪环境中完美伪装并游泳捕猎海豹。</p>
+            </div>
+        </div>
+
+        <div class="layer-item" style="display:flex;gap:40px;align-items:center;flex-direction:row-reverse;">
+            <div class="layer-image" style="flex:1;">
+                <img src="../images/arctic-fox.jpg" alt="北极狐">   <!-- ← 替换图片 -->
+            </div>
+            <div class="layer-text" style="flex:1;">
+                <span class="layer-depth" style="background:#166534;color:#86efac;">适应极寒</span>
+                <h3>北极狐</h3>
+                <p>毛色随季节变化（夏季棕灰、冬季雪白），能在-50℃的极端低温下生存。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feature-wrap">
+    <h2 class="common-title">极地动物生存关键特征</h2>
+    <div class="line"></div>
+    <div class="feature-box" style="max-width:1000px;margin:0 auto;padding:0 24px;">
+        <div class="feature-text">
+            <h3>适应极寒环境的演化特点</h3>
+            <ul class="feature-list" style="color:#cbd5e1;">
+                <li><strong>厚重脂肪层</strong>：提供保温和能量储备。</li>
+                <li><strong>白色伪装毛发</strong>：与冰雪环境融为一体。</li>
+                <li><strong>高效保温机制</strong>：小耳朵、小尾巴减少热量散失。</li>
+                <li><strong>游泳与冰上移动能力</strong>：北极熊是优秀的游泳健将。</li>
+            </ul>
+        </div>
+        <div class="feature-img">
+            <img src="../images/polar.jpg" alt="极地冰雪景观">   <!-- ← 替换图片 -->
+        </div>
+    </div>
+</section>
+
+<section class="species-wrap">
+    <h2 class="common-title">三大典型极地动物介绍</h2>
+    <div class="line"></div>
+    <div class="species-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto;padding:0 24px;">
+        <div class="species-card">
+            <img src="../images/polar-bear.jpg" alt="北极熊">
+            <div class="species-content">
+                <h3>北极熊</h3>
+                <p><strong>保护级别：易危</strong></p>
+                <p>北极的顶级捕食者，依赖海冰生存。</p>
+            </div>
+        </div>
+        <div class="species-card">
+            <img src="../images/arctic-fox.jpg" alt="北极狐">
+            <div class="species-content">
+                <h3>北极狐</h3>
+                <p><strong>保护级别：三有保护动物</strong></p>
+                <p>毛色随季节变化，适应极寒环境。</p>
+            </div>
+        </div>
+        <div class="species-card">
+            <img src="../images/penguin.jpg" alt="企鹅">   <!-- 如果有南极企鹅图片可替换 -->
+            <div class="species-content">
+                <h3>企鹅</h3>
+                <p><strong>保护级别：不同种类不同级别</strong></p>
+                <p>南极的标志性动物，善于游泳。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="eco-wrap">
+    <h2 class="common-title">极地生态保护意义</h2>
+    <div class="line"></div>
+    <p class="eco-desc">全球气候变暖导致极地冰川融化，严重威胁极地动物生存。保护极地，就是保护地球气候系统。</p>
+</section>
+
+<footer>
+    ©2026 动物世界科普平台
+</footer>
 <a href="#top" class="top-btn">↑</a>
-<!-- scroll script 同上 -->
+
+<script>
+window.addEventListener("scroll",()=>{
+  let nav = document.getElementById("nav");
+  if(window.scrollY>50){
+    nav.classList.add("scrolled");
+  }else{
+    nav.classList.remove("scrolled");
+  }
+});
+</script>
 </body>
 </html>
